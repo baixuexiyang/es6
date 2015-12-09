@@ -5,7 +5,7 @@ const coffeescript = require('broccoli-coffee');
 const uglifyJavaScript = require('broccoli-uglify-js');
 
 
-/* 资源路径 */
+/* folder */
 const es6 = 'es6';
 const coffee  = 'coffeescript';
 
@@ -15,7 +15,7 @@ const es = esTranspiler(es6, {
   moduleIds: true,
   modules: 'amd',
 });
-/* 合并 */
+/* contact */
 const mainJs = concat(es, {
   inputFiles: [
     '**/*.js'
@@ -35,7 +35,7 @@ const mainCoffee = concat(cf, {
 	outputFile: '/js/coffee.js'
 });
 
-/* 压缩 */
+/* uglify */
 const uglifyEs = uglifyJavaScript(mainJs);
 const uglifyCoffee = uglifyJavaScript(mainCoffee);
 
